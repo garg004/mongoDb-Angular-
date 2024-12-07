@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>People List</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .actions { display: flex; gap: 10px; }
+    .btn { padding: 5px 10px; text-decoration: none; border-radius: 4px; }
+    .btn-primary { background-color: #007bff; color: white; }
+    .btn-warning { background-color: #ffc107; color: black; }
+    .btn-danger { background-color: #dc3545; color: white; }
+  </style>
+</head>
+<body>
+  <h1>People List</h1>
+  <a href="/person/new" class="btn btn-primary">Add New Person</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Mobile Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% people.forEach(person => { %>
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.age %></td>
+          <td><%= person.gender %></td>
+          <td><%= person.mobileNumber %></td>
+          <td class="actions">
+            <a href="/person/<%= person._id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/person/<%= person._id %>/delete" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

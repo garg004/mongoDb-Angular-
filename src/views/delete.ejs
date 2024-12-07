@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Person</title>
+  <style>
+    .container { max-width: 500px; margin: 0 auto; text-align: center; }
+    .btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+    .btn-danger { background-color: #dc3545; color: white; }
+    .btn-secondary { background-color: #6c757d; color: white; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Delete Person</h1>
+    <p>Are you sure you want to delete <%= person.name %>?</p>
+    <form action="/person/<%= person._id %>?_method=DELETE" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+      <a href="/person" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>
